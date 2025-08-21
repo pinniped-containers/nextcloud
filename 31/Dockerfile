@@ -12,4 +12,5 @@ RUN apk -U upgrade \
     && rm -rf /var/cache/apk/*
 
 COPY --from=ghcr.io/polarix-containers/hardened_malloc:latest /install /usr/local/lib/
+COPY --from=cgr.dev/chainguard/busybox /install /usr/local/lib/
 ENV LD_PRELOAD="/usr/local/lib/libhardened_malloc.so"
