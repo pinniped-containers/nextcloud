@@ -1,11 +1,12 @@
-ARG VERSION=31
-
 FROM cgr.dev/chainguard/wolfi-base:latest
+ARG VERSION=31
+WORKDIR /app
 
 LABEL maintainer="Winnie The Pooh winsdominoes@winscloud.net"
 
 RUN apk -U upgrade \
     && apk add libstdc++ \
+    && chown -R nonroot:nonroot /app/ \
     && apk add nextcloud-server \
     && rm -rf /var/cache/apk/*
 
