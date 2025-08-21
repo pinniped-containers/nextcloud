@@ -5,6 +5,7 @@ WORKDIR /app
 LABEL maintainer="Winnie The Pooh winsdominoes@winscloud.net"
 
 RUN apk -U upgrade \
+    && rm /var/spool/cron/crontabs \
     && apk add libstdc++ \
     && chown -R nonroot:nonroot /app/ \
     && apk add nextcloud-server \
